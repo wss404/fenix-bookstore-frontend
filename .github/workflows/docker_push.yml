@@ -19,6 +19,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/bookstore:frontend
+        labels:
+            org.opencontainers.image.version=frontend
 
       -
         name: Login to DockerHub
