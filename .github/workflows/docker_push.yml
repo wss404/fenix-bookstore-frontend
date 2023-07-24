@@ -18,7 +18,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: wanshousi/bookstore
+          images: docker.io/wanshousi/bookstore
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
@@ -32,5 +32,5 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: fontend
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
