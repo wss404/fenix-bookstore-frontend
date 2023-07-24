@@ -18,7 +18,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/bookstore:frontend
+          images: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/bookstore
           labels: |
               org.opencontainers.image.version=frontend
 
