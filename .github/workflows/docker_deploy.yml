@@ -60,7 +60,7 @@ jobs:
           user: ${{ secrets.SERVER_USERNAME }}
           ssh-port: ${{ env.SSH_PORT }}
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          target: ~
+          target-dir: '/home/ci'
           files: |
             env.Dockerfile
           command: |
