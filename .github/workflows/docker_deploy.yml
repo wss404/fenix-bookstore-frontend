@@ -60,8 +60,11 @@ jobs:
           user: ${{ secrets.SERVER_USERNAME }}
           ssh-port: ${{ env.SSH_PORT }}
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          target: ~
+          files: |
+            env.Dockerfile
           command: |
-              sudo docker stop ${{ env.IMAGE_TAG }} || true
-              sudo docker rm ${{ env.IMAGE_TAG }} || true
-              sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-              sudo docker run -p ${{ env.PORT }}:${{ env.DEFAULT_PORT}} --name ${{ env.IMAGE_TAG }} -d ${{ secrets.DOCKER_HUB_USER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            sudo docker stop ${{ env.IMAGE_TAG }} || true
+            sudo docker rm ${{ env.IMAGE_TAG }} || true
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            sudo docker run -p ${{ env.PORT }}:${{ env.DEFAULT_PORT}} --name ${{ env.IMAGE_TAG }} -d ${{ secrets.DOCKER_HUB_USER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
