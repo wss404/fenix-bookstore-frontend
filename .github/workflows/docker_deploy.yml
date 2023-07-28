@@ -62,7 +62,7 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           target-dir: '/home/ci'
           files: |
-            env.Dockerfile
+            Dockerfile
           command: |
             sudo docker stop ${{ env.IMAGE_TAG }} || true
             sudo docker rm ${{ env.IMAGE_TAG }} || true
